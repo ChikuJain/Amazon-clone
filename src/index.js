@@ -7,9 +7,7 @@ const cookieParser = require("cookie-parser")
 
 app.use(express.json());
 app.use(cookieParser(""))
-app.use(cors({
-    origin : "https://ornate-sorbet-47657e.netlify.app"
-}))
+app.use(cors())
 
 mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true
