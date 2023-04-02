@@ -8,8 +8,9 @@ const cookieParser = require("cookie-parser")
 app.use(express.json());
 app.use(cookieParser(""))
 app.use(cors())
+app.use(express.static("build"))
 
-mongoose.connect(process.env.DATABASE, {
+mongoose.connect(process.env.DATABASE , {
     useNewUrlParser: true
 })
 .then( () => console.log("MongoDb is connected"))

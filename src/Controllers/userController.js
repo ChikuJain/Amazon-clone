@@ -78,10 +78,10 @@ let userLogin = async function (req, res) {
             },
             "functionup-radon",
         );
-        res.cookie("jwtoken",token,{
-            expires: new Date(Date.now() + 900000),
-            httpOnly:true
-        });
+        // res.cookie("jwtoken",token,{
+        //     expires: new Date(Date.now() + 900000)
+        //     //httpOnly:true
+        // });
 
         res.status(200).send({userId: user._id, userName:user.fname, token: token});
     }
@@ -94,6 +94,7 @@ let userLogin = async function (req, res) {
 let userLogout = async function(req,res){
     try{
         res.clearCookie("jwtoken", { path: "/" });
+        res.clearCookie("foo", { path: "/" });
         res.status(201).send({status:true,message:"user logout successfully"})
     }
     catch(err){
